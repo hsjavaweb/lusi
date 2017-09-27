@@ -1,0 +1,54 @@
+mysql> use mysql
+Database changed
+mysql> create table student_info(
+    -> name varchar(45) default null,
+    -> sex varchar(45) default null,
+    -> age int(11) not null,
+    -> number int
+    -> );
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> insert into student_info
+    -> values('zhangsan','nan','20','5050411'),
+    -> ('lisi','nv','19','5050420'),
+    -> ('wangwu','nan','20','5050421'),
+    -> ('zhaoliu','nan','21','5050422'),
+    -> ('lusi','nv','19','5050416');
+Query OK, 5 rows affected (0.14 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student_info;
++----------+------+-----+---------+
+| name     | sex  | age | number  |
++----------+------+-----+---------+
+| zhangsan | nan  |  20 | 5050411 |
+| lisi     | nv   |  19 | 5050420 |
+| wangwu   | nan  |  20 | 5050421 |
+| zhaoliu  | nan  |  21 | 5050422 |
+| lusi     | nv   |  19 | 5050416 |
++----------+------+-----+---------+
+5 rows in set (0.00 sec)
+
+mysql> update student_info
+    -> set
+    -> number = '5050419'
+    -> where
+    -> name = 'zhangsan';
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> delete from student_info
+    -> where
+    -> name = 'wangwu';
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from student_info;
++----------+------+-----+---------+
+| name     | sex  | age | number  |
++----------+------+-----+---------+
+| zhangsan | nan  |  20 | 5050419 |
+| lisi     | nv   |  19 | 5050420 |
+| zhaoliu  | nan  |  21 | 5050422 |
+| lusi     | nv   |  19 | 5050416 |
++----------+------+-----+---------+
+4 rows in set (0.00 sec)
